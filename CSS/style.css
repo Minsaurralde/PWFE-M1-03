@@ -18,10 +18,20 @@ header{
 	overflow: hidden;
 	padding: 15px;
 }
+header img{
+	float:left;
+	width: 62px;
+}
 header h1 {
 	color: #cfd7de;
-	margin: 0;
 	float: left;
+	font-weight: 700;
+	font-size: 28px;
+	background-image: url("../img/logo.png");
+	background-repeat: no-repeat;
+	padding-left: 75px;
+	line-height: 1.5;
+	background-position: left center;
 }
 header nav {
 	float: right;
