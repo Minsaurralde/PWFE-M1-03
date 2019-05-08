@@ -49,11 +49,12 @@ header nav a {
 	text-align: center;
 	padding: 5px;
 }
-header nav a:hover{
+header nav a: hover {
 	color: #333;
 	background-color: #FFF
 }
 #noticias-destacadas img {
+	display: block;
 	width: 100%;
 }
 #noticias-destacadas figcaption {
@@ -65,14 +66,26 @@ header nav a:hover{
 	font-size: 36px;
 	font-weight: 700;
 }
-.noticia-img {
-	widht:30%;
+.noticia {
+	display: flex;
+	flex-direction: row; /* row ~ column ~ row-reverse ~ column-reverse */
+	justify-content: space-around; /* flex-start ~ center ~ flex-end */
+	align-items: center;
+	border-bottom: solid 1px #CCC;
+	margin-left: 20px;
+	margin-right: 20px;
 }
-.noticia-img img {
+.noticia: last-child {
+	border: none;
+}
+.noticia-img {
 	width: 30%;
 }
+.noticia-img img {
+	width: 100%;
+}
 .noticia-txt {
-	width: 70%
+	width: 60%
 }
 .noticia-txt h3 {
 	font-weight: 700;
@@ -87,4 +100,13 @@ header nav a:hover{
 }
 .noticia-txt a {
 	color: #000;
+}
+footer {
+	background-color: #333;
+	padding: 15px;
+}
+footer p {
+	color: #FFF;
+	font-size: 12px;
+	text-align: center;
 }
