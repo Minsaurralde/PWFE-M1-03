@@ -30,25 +30,25 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ml-lg-auto text-center">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="far fa-futbol"></i> Futbol</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/F%C3%BAtbol"><i class="far fa-futbol"></i> Futbol</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-basketball-ball"></i> NBA</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/National_Basketball_Association"><i class="fas fa-basketball-ball"></i> NBA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-baseball-ball"></i> Tenis</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/Tenis"><i class="fas fa-baseball-ball"></i> Tenis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-flag-checkered"></i> Fórmula 1</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/Formula_1"><i class="fas fa-flag-checkered"></i> Fórmula 1</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-hand-rock"></i> Boxéo</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/Boxeo"><i class="fas fa-hand-rock"></i> Boxéo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-medal"></i> JJOO</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/Juegos_Ol%C3%ADmpicos"><i class="fas fa-medal"></i> JJOO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-motorcycle"></i> Moto GP</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/MotoGP"><i class="fas fa-motorcycle"></i> Moto GP</a>
           </li>
         </ul>
       </div>
@@ -180,18 +180,35 @@
 		}
 
 		function validarOpcion(evento){
+			evento.preventDefault()
 
 			let clickeado = evento.target;
+			console.log("El parametro magico es")
+			console.log(evento)
+
 
 			let rta = confirm(`Esta seguro que desea ir a${clickeado.innerText}?`)
 
 			if( rta ){
 				alert("OK, buen viaje...")
+				window.location = clickeado.href
 			}
 		}
 		
 		/* Fin cambiarLogo */
 		
+		function obtenerNoticias(){
+
+			let ajax = new XMLHttpRequest()
+			ajax.open("GET", "noticias.json")
+			ajax.onload = function(){
+				if( ajax.status == 200 ){ // <-- respuesta exitosa!
+
+					console.log( ajax.response )
+				}
+			}
+			ajax.send()
+		}
 
 
 
