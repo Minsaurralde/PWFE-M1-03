@@ -91,51 +91,16 @@
       <!-- Noticia 1 -->
       <article class="row py-3 mx-3 border-bottom">
         <div class="col-12 col-md-4">
-          <img src="img/sorteo-libertadores.jpg" class="img-fluid">
+          <img src="{{IMAGEN}}" class="img-fluid">
         </div>
         <div class="col-12 col-md-8">
-          <h3>La tecnologia llega a la actual edicion de la libertadores</h3>
-          <p>por Joaquin Angeli</p>
-          <p>La conmebol anuncio la implementacion del sistema WAR (asistencia arbitral por video) desde las semifinales de la actual libertadores.</p>
+          <h3>{{TITULO}}</h3>
+          <p>por<strong>{{AUTOR}}<strong/></p>
+          <p>{{DETALLE}}</p>
         </div>
       </article>
       <!-- FinNoticia 1 -->
-       <!-- Noticia 2 -->
-      <article class="row py-3 mx-3 border-bottom">
-        <div class="col-12 col-md-4">
-          <img src="img/tickets-rusia-mundial.jpg" class="img-fluid">
-        </div>
-        <div class="col-12 col-md-8">
-          <h3>La tecnologia llega a la actual edicion de la libertadores</h3>
-          <p>por Joaquin Angeli</p>
-          <p>La conmebol anuncio la implementacion del sistema WAR (asistencia arbitral por video) desde las semifinales de la actual libertadores.</p>
-        </div>
-      </article>
-      <!-- FinNoticia 2 -->
-      <!-- Noticia 3 -->
-      <article class="row py-3 mx-3 border-bottom">
-        <div class="col-12 col-md-4">
-          <img src="img/firpo.jpg" class="img-fluid">
-        </div>
-        <div class="col-12 col-md-8">
-          <h3>La tecnologia llega a la actual edicion de la libertadores</h3>
-          <p>por Joaquin Angeli</p>
-          <p>La conmebol anuncio la implementacion del sistema WAR (asistencia arbitral por video) desde las semifinales de la actual libertadores.</p>
-        </div>
-      </article>
-      <!-- FinNoticia 3 -->
-       <!-- Noticia 4 -->
-      <article class="row py-3 mx-3">
-        <div class="col-12 col-md-4">
-          <img src="img/buenos-aires.jpg" class="img-fluid">
-        </div>
-        <div class="col-12 col-md-8">
-          <h3>La tecnologia llega a la actual edicion de la libertadores</h3>
-          <p>por Joaquin Angeli</p>
-          <p>La conmebol anuncio la implementacion del sistema WAR (asistencia arbitral por video) desde las semifinales de la actual libertadores.</p>
-        </div>
-      </article>
-      <!-- FinNoticia 4 -->
+
      </main>
 
     <!-- Optional JavaScript -->
@@ -148,7 +113,9 @@
     	let logo = document.querySelector(".navbar-brand")
     	let links = document.querySelectorAll(".nav-link")
 
-    	/* ASI NO!!!!
+    	
+/* 
+      ASI NO!!!!
     	links[0].onclick = validarOpcion
     	links[1].onclick = validarOpcion
     	links[2].onclick = validarOpcion
@@ -156,7 +123,7 @@
     	links[4].onclick = validarOpcion
     	links[5].onclick = validarOpcion
     	links[6].onclick = validarOpcion
-    	*/
+*/
 
     	//for(CONTADOR;CONDICION;SECUENCIA
     	for(let i = 0; i < links.length; i++){
@@ -166,6 +133,8 @@
 
 		//3) Manipulacion de comportamiento (Eventos)
 		logo.onclick = cambiarLogo
+
+    window.onload = obtenerNoticias
 
 		function cambiarLogo(){
 			/* Inicio cambiarLogo */
@@ -204,7 +173,11 @@
 			ajax.onload = function(){
 				if( ajax.status == 200 ){ // <-- respuesta exitosa!
 
+          console.log("ANTES DEL PARSEO")
 					console.log( ajax.response )
+
+          console.log("DESPUES DEL PARSEO")
+          console.log(JSON.parse(ajax.response))
 				}
 			}
 			ajax.send()
